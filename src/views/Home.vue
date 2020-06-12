@@ -10,6 +10,12 @@
     </div>
 
     <section>
+      <h2 class="section__title">{{sections[1].heading}}</h2>
+      <p class="span-box__text">{{sections[1].content}}</p>
+    </section>
+
+
+    <section>
       <h2 class="section__title">{{sections[0].heading}}</h2>
       <div class="container">
         <div class="box" :key="title" v-for="(par, title) in sections[0].content">
@@ -19,11 +25,7 @@
       </div>
     </section>
 
-    <section>
-      <h2 class="section__title">{{sections[1].heading}}</h2>
-      <p class="span-box__text">{{sections[1].content}}</p>
-    </section>
-    <section>
+        <section>
       <h2 class="section__title">{{sections[2].heading}}</h2>
       <ul class="deck">
         <li class="card" v-for="(logo, name ) in sections[2].content" :key="name">
@@ -32,11 +34,10 @@
         </li>
       </ul>
     </section>
+
     <section>
-      <h2 class="section__title">{{sections[3].heading}}</h2>
-      <ul class="span-box__list">
-        <li v-for="item in sections[3].content" :key="item" class="span-box__list-item">{{item}}</li>
-      </ul>
+      <h2 class="section__title">Want to get in touch?</h2>
+      <div @click="show" class="link" to="/contact">Contact Me.</div>
     </section>
   </div>
 </template>
@@ -57,15 +58,15 @@ export default {
             "A Passion to Learn":
               "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi.",
             "Full Stack Experience":
-              "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi.",
+              "I've worked on projects where I needed to be involved through every part of process, from creating Java and Spring Restful APIs, building the decoupled front-end with React, and doing all of the styling from scratch.",
             "Broad Business Exposure":
-              "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi."
+              "I have several years of experience working for a Fortune 500 company. I’ve built and managed customer facing teams tasked with creating exceptional client experiences. I have extensive experience collaborating on teams to reach our shared vision."
           }
         },
         {
           heading: "Where I Come From",
           content:
-            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi."
+            "My name is Chad Collins and I'm a software developer based in Columbus Ohio. I formerly spent several years in the wireless industry with experiences ranging from management, tech support, and customer service. I made the decision to become a software developer because I wanted a career that allowed me to combine my creative and analytical skill sets to solve problems. Programming allows me to collaborate on projects and watch my ideas come to life as I code, and I can’t think of a better way to spend my life."
         },
         {
           heading: "My Tech Stack",
@@ -78,13 +79,14 @@ export default {
             "HTML 5": "html5-logo.png",
             "CSS 3": "css-logo.png"
           }
-        },
-        {
-          heading: "What Drives Me",
-          content: ["1","2","3"]
         }
       ]
     };
+  },
+  methods: {
+    show() {
+      this.$emit("show");
+    }
   }
 };
 </script>
@@ -141,12 +143,22 @@ section * {
   max-height: auto;
 }
 
+.card__title{
+  margin-bottom: 0.4rem;
+
+}
+
 .box {
   margin: 1rem;
 }
 
 .span-box__list-item {
   margin-left: 1rem;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 @media all and (min-width: 768px) {

@@ -4,7 +4,7 @@
     <Navbar @show="showContactMenu()" v-model="currentView" />
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
 
-    <router-view />
+    <router-view @show="showContactMenu()" />
     <SocialBar v-if="showingContactMenu == false" />
     <Footer />
   </div>

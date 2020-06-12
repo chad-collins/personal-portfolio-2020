@@ -34,7 +34,6 @@ export default {
   methods: {
           
         show(){
-          console.log('child')
             this.$emit('show')
             
         },
@@ -77,7 +76,7 @@ a {
   align-items: center;
   position: fixed;
   transform: translate3d(0, 0, 0);
-  transition: 0.1s all ease-out;
+  transition: 0.2s all ease-out;
   z-index: 1000;
    padding: 0 0.93rem;
 }
