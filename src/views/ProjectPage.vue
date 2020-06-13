@@ -22,14 +22,14 @@
               v-for="tool in tools"
             />
           </ul>
-          <div v-if="project.live">
-            <h2 class="section-title">See it live</h2>
-            <a :href="project.live" target="_blank">{{project.live}}</a>
-          </div>
-          <div v-if="project.code">
-            <h2 class="section-title">See the code</h2>
-            <a :href="project.code" target="_blank">{{project.code}}</a>
-          </div>
+
+            <h2 v-if="project.live" class="section-title">See it live</h2>
+            <a v-if="project.live" :href="project.live" target="_blank">{{project.live}}</a>
+
+
+            <h2 v-if="project.code" class="section-title">See the code</h2>
+            <a v-if="project.code" :href="project.code" target="_blank">{{project.code}}</a>
+
         </section>
       </div>
     </div>
@@ -110,16 +110,19 @@ li {
 
 .section-title {
   border-bottom: 1px solid rgb(231, 231, 231);
-  margin: 1.2rem 0;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   color: #222629;
 }
+
 
 .grid {
   margin: 1rem;
 }
 
 .project-image {
+   margin-top: 2rem;
   grid-area: image;
   width: 100%;
 }

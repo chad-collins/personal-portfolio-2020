@@ -27,10 +27,11 @@ export default {
 
 <style scoped>
 footer {
+  margin-top: 2rem;
  color:#222629;
   display: flex;
   justify-content: center;
-   line-height: 1.5rem;
+  line-height: 1.5rem;
 }
 .wrapper {
   padding: 1.5rem;
