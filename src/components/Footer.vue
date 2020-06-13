@@ -7,7 +7,7 @@
         <span>
           <router-link
             :to="{ 
-            name: 'ProjectPage', 
+            name: 'projectPage', 
             params: { 
                 slug: 'personal-portfolio',
             } 
