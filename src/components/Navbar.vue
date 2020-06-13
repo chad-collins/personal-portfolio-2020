@@ -37,9 +37,6 @@ export default {
             this.$emit('show')
             
         },
-    toggleClass: function(event) {
-      this.isActive = !this.isActive;
-    },
     onScroll() {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
