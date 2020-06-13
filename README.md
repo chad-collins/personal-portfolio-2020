@@ -1,4 +1,5 @@
 # rewkie.github.io
+[![Netlify Status](https://api.netlify.com/api/v1/badges/57680d9b-4654-4942-a671-5f55d3bcc26b/deploy-status)](https://app.netlify.com/sites/chadcollins/deploys)
 
 ## Project setup
 ```
