@@ -111,6 +111,11 @@ nav .router-link-active {
   margin: 0 0.6rem;
   cursor: pointer;
   padding: 0 0.1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav--link:hover {
+   color: #86c232;
 }
 
 .navbar.navbar--hidden {

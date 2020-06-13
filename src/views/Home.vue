@@ -29,7 +29,7 @@
       <h2 class="section__title">{{sections[2].heading}}</h2>
       <ul class="deck">
         <li class="card" v-for="(logo, name ) in sections[2].content" :key="name">
-          <img class="card-image" :src="require('@/assets/images/' + logo)" alt />
+          <img class="card-image" :src="require('@/assets/images/' + logo)" :alt="name" />
           <p class="card__title">{{name}}</p>
         </li>
       </ul>
@@ -76,8 +76,8 @@ export default {
             Node: "node-logo.png",
             Java: "java-logo.png",
             Spring: "spring-logo.png",
-            "HTML 5": "html5-logo.png",
-            "CSS 3": "css-logo.png"
+            "HTML 5": "html 5-logo.png",
+            "CSS 3": "css 3-logo.png"
           }
         }
       ]

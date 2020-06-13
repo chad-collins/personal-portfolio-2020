@@ -2,8 +2,6 @@
   <div id="app">
     <ContactMenu @close="closeContactMenu()" v-show="showingContactMenu" />
     <Navbar @show="showContactMenu()" v-model="currentView" />
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-
     <router-view @show="showContactMenu()" />
     <SocialBar v-if="showingContactMenu == false" />
     <Footer />

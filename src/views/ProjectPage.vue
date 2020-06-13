@@ -2,39 +2,34 @@
   <div>
     <Hero v-bind:title="project.title" v-bind:subtitle="project.summary" size="standard" />
     <div class="breadcrumb">
-          <router-link to="/projects">projects</router-link>
-          <p>&ensp;>>&ensp;{{project.slug}}</p>
-        </div>
-    <div class="grid">
-      <div class="grid-item a">
-        <img v-bind:src="project.image[0].thumbnails.large.url" />
-      </div>
-      <div class="grid-item b">
-        
-        <section>
-          <h2 class="section-title">Goals</h2>
-          <ul>
-            <li v-bind:goals="goals" v-bind:key="goals" v-for="goals in project.goals">{{goals}}</li>
-          </ul>
-        </section>
-        <section>
+      <router-link class="breadcrumb-link" to="/projects">projects</router-link>
+      <p>&ensp;>>&ensp;{{project.slug}}</p>
+    </div>
+    <div class="container">
+      <div class="grid">
+        <img class="project-image" v-bind:src="project.screenshot" />
+
+        <section class="project-info">
+          <h2 class="section-title">Details</h2>
+          <div>{{project.details}}</div>
+
           <h2 class="section-title">Skills & Tools</h2>
-          <ul class="tools-list">
+          <ul v-if="project.tools" class="tools-list">
             <ToolIcons
               class="tool-icon"
               v-bind:toolName="tool"
               v-bind:key="tool"
-              v-for="tool in project.tools.sort()"
+              v-for="tool in tools"
             />
           </ul>
-        </section>
-        <section>
-          <h2 class="section-title">How It Works</h2>
-          <p>{{project.description}}</p>
-        </section>
-        <section>
-          <h2 class="section-title">See the code</h2>
-          <p>{{project.link}}</p>
+          <div v-if="project.live">
+            <h2 class="section-title">See it live</h2>
+            <a :href="project.live" target="_blank">{{project.live}}</a>
+          </div>
+          <div v-if="project.code">
+            <h2 class="section-title">See the code</h2>
+            <a :href="project.live" target="_blank">{{project.code}}</a>
+          </div>
         </section>
       </div>
     </div>
@@ -56,7 +51,8 @@ export default {
 
   data() {
     return {
-      project: {}
+      project: {},
+      projectImage: ""
     };
   },
   created() {
@@ -64,19 +60,30 @@ export default {
   },
   methods: {
     async fetchProject() {
-      let me = this;
-      let slug = me.$route.params.slug;
+      let slug = this.$route.params.slug;
       let { data } = await ProjectsRepository.getProjectBySlug(slug);
-      me.project = data.records[0].fields;
+      this.project = data.records[0].fields;
+      this.project.screenshot = this.project.image[0].thumbnails.large.url;
+    }
+  },
+  computed: {
+    tools(){
+      const tools =  this.project.tools;
+      return tools.sort();
     }
   }
 };
 </script>
 
 <style scoped>
-section p{
-   line-height: 1.8rem;
-   color: #222629;
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+section p {
+  line-height: 1.8rem;
+  color: #222629;
 }
 .tools-list {
   display: flex;
@@ -90,20 +97,12 @@ li {
   list-style: none;
 }
 
-.a {
-  width: 100vw;
-}
-
-.b {
-  padding: 1rem;
-}
-
-a{
+.breadcrumb-link {
   color: #86c232;
 }
 .breadcrumb {
   color: white;
-  padding:0 0 0.5rem 2rem;
+  padding: 0 0 0.5rem 2rem;
   display: flex;
   width: 100%;
   background-color: #222629;
@@ -113,13 +112,35 @@ a{
   border-bottom: 1px solid rgb(231, 231, 231);
   margin: 1.2rem 0;
   padding-bottom: 0.5rem;
-  color:#222629;
+  color: #222629;
 }
 
-img {
-  
-  width: 100vw;
-  min-width: 200px;
-  height: auto;
+.grid {
+  margin: 1rem;
+}
+
+.project-image {
+  grid-area: image;
+  width: 100%;
+}
+
+@media all and (min-width: 800px) {
+  .grid {
+    display: grid;
+    max-width: 1200px;
+    column-gap: 3rem;
+
+    grid-template-areas:
+      "info image"
+      "info .";
+  }
+
+  .project-image {
+    grid-area: image;
+    max-width: 30vw;
+  }
+  .project-info {
+    grid-area: info;
+  }
 }
 </style>

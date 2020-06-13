@@ -4,7 +4,7 @@
       <img v-if="image != null"
         class="card-image"
         v-bind:src="require('@/assets/images/' + image)"
-        v-bind:alt="imageAlt"
+        alt="Photo of me"
       />
       <h1 class="title">{{ title }}</h1>
       <div class="subtitle">{{ subtitle }}</div>
