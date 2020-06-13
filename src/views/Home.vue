@@ -71,13 +71,17 @@ export default {
         {
           heading: "My Tech Stack",
           content: {
-            "Vue.js": "vue-logo.png",
+            
             Javascript: "javascript-logo.png",
+            "Vue.js": "vue-logo.png",
             Node: "node-logo.png",
             Java: "java-logo.png",
             Spring: "spring-logo.png",
             "HTML 5": "html 5-logo.png",
-            "CSS 3": "css 3-logo.png"
+            "CSS 3": "css 3-logo.png",
+            "Git": "git-logo.png",
+            "Agile": "agile development-logo.png",
+            "Restful APIs": "api-logo.png"
           }
         }
       ]
