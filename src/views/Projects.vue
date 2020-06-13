@@ -10,6 +10,7 @@
           v-for="project in sorted"
         >
           <router-link
+            class="card-content"
             :to="{ 
             name: 'ProjectPage', 
             params: { 
@@ -17,18 +18,16 @@
             } 
         }"
           >
-            <figure>
-              <img
-                v-if="project.fields.image"
-                class="card-image"
-                :src="project.fields.image[0].thumbnails.large.url"
-              />
-              <img
-                v-else
-                class="card-image"
-                src="https://image.tmdb.org/t/p/w370_and_h556_bestv2///aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg"
-              />
-            </figure>
+            <img
+              v-if="project.fields.image"
+              class="card-image"
+              :src="project.fields.image[0].thumbnails.large.url"
+            />
+            <img
+              v-else
+              class="card-image"
+              src="https://image.tmdb.org/t/p/w370_and_h556_bestv2///aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg"
+            />
 
             <div class="card-info">
               <h2 class="card-title">{{project.fields.title}}</h2>
@@ -91,29 +90,30 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .deck {
   display: flex;
+    
   flex-wrap: wrap;
-  grid-column-gap: 0.5rem;
-  grid-row-gap: 0.5rem;
-}
-
-.deck::after {
-  content: "";
+  row-gap: 2rem;
+  column-gap: 2rem;
+  margin-top: 2rem; 
 }
 
 .card {
   box-shadow: 0px 2px 11px 3px rgba(0, 0, 0, 0.17);
-  margin: 1rem;
   user-select: none;
   background: #222629;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
   transition: box-shadow 0.5s;
   transition: transform 0.2s;
+  max-width: 500px;
   width: 100vw;
 }
+
 
 .card-info {
   padding: 1rem;
@@ -126,13 +126,10 @@ export default {
   color: #86c232;
 }
 
-figure {
-  display: grid;
-  width: 100%;
-}
+
 
 .card-image {
-  width: 600px;
+  width: inherit;
   max-width: 100%;
   max-height: auto;
 }
@@ -148,34 +145,33 @@ a {
   transform: scale(1.01);
 }
 
-@media screen and (min-width: 650px) {
-  .card {
-    max-width: 100%;
-    width: 41vw;
-  }
 
-  .deck {
-    justify-content: space-between;
-    padding: 1rem;
-  }
+@media all and (min-width: 501px) {
+  .deck { 
+  width: 500px;
+}
 }
 
-@media screen and (min-width: 900px) {
-  .deck {
-    padding: 2.5rem;
-  }
+@media all and (min-width: 1100px) {
+.deck { 
+  width: 1100px;
 }
 
-@media screen and (min-width: 1199px) {
-  .card {
-    max-width: 100%;
-    width: 29vw;
+.deck::after {
+  content: "";
+}
+
+.card {
+  width: 40vw;
+
+}
+}
+
+@media all and (min-width: 1800px) {
+  .deck {
+    width: 1600px; 
   }
 
-  .deck {
-    justify-content: space-between;
-    padding: 1rem;
-  }
 }
 </style>
 
