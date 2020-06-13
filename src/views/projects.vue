@@ -12,7 +12,7 @@
           <router-link
             class="card-content"
             :to="{ 
-            name: 'ProjectPage', 
+            name: 'projectPage', 
             params: { 
                 slug: project.fields.slug,
             } 

@@ -43,7 +43,7 @@ import Hero from "../components/Hero";
 import ToolIcons from "../components/ToolIcons";
 
 export default {
-  name: "Project",
+  name: "projectPage",
   components: {
     Hero,
     ToolIcons
