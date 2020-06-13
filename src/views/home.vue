@@ -171,5 +171,9 @@ section * {
   .container {
     flex-wrap: nowrap;
   }
+  
+  section {
+    padding: 5rem 1rem;
+  }
 }
 </style>
