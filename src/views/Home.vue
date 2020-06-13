@@ -79,7 +79,7 @@ export default {
             Spring: "spring-logo.png",
             "HTML 5": "html 5-logo.png",
             "CSS 3": "css 3-logo.png",
-            "Rest APIs": "api-logo.png",
+            "Rest APIs": "rest apis-logo.png",
             "Git": "git-logo.png",
             "Agile": "agile development-logo.png"
             
