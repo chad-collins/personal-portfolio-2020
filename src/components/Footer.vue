@@ -9,7 +9,7 @@
             :to="{ 
             name: 'ProjectPage', 
             params: { 
-                slug: 'movie-trailers',
+                slug: 'personal-portfolio',
             } 
         }"
           >project page</router-link>
