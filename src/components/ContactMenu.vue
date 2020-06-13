@@ -6,7 +6,7 @@
     </div>
 
     <div class="group-container">
-      <a href="mailto:contact@chadcollins.net" target="_blank"class="contact-group">
+      <a href="mailto:contact@chadcollins.net" target="_blank" class="contact-group">
         <h3 class="title">EMAIL ME</h3>
         <div class="body">contact@chadcollins.net</div>
       </a>
@@ -14,7 +14,7 @@
         <h3 class="title">LINKEDIN</h3>
         <div class="body">linkedin.com/in/chadacollins</div>
       </a>
-      <a href="http://github.com/chad-collins" target="_blank"  class="contact-group">
+      <a href="http://github.com/chad-collins" target="_blank" class="contact-group">
         <h3 class="title">GITHUB</h3>
         <div class="body">github.com/chad-collins</div>
       </a>

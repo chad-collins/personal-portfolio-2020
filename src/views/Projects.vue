@@ -63,7 +63,6 @@ export default {
   methods: {
     async fetchProjects() {
       let me = this;
-      let unsorted = [];
       const { data } = await ProjectsRepository.get();
       me.projects = data.records;
     }

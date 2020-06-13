@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="wrapper">
-      <small>&copy2020 Chad Collins</small>
+      <small>&copy;2020 Chad Collins</small>
       <small>
         See the
         <span>
