@@ -93,10 +93,7 @@ export default {
 
 .deck {
   display: flex;
-    
   flex-wrap: wrap;
-  row-gap: 2rem;
-  column-gap: 2rem;
   margin-top: 2rem; 
 }
 
@@ -112,6 +109,7 @@ export default {
   transition: transform 0.2s;
   max-width: 500px;
   width: 100vw;
+  margin: 1rem;
 }
 
 

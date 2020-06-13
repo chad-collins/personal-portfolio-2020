@@ -64,21 +64,9 @@ img {
   border-radius: 50%;
   height: auto;
   margin-bottom: 0.1rem;
-  max-width: 09rem;
-    -webkit-animation: growheadshot 0.6s forwards;
- 
-  animation: growheadshot  0.6s forwards;
-
+  max-width: 9rem;
 }
 
-@keyframes growheadshot {
-  from {
-    max-width: 5rem;
-  }
-  to {
-    max-width: 9rem;
-  }
-}
 
 @media screen and (min-device-width: 415px) {
   .standard {
