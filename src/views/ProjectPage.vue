@@ -28,7 +28,7 @@
           </div>
           <div v-if="project.code">
             <h2 class="section-title">See the code</h2>
-            <a :href="project.live" target="_blank">{{project.code}}</a>
+            <a :href="project.code" target="_blank">{{project.code}}</a>
           </div>
         </section>
       </div>
