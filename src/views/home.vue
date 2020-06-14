@@ -56,11 +56,11 @@ export default {
           heading: "What I Bring",
           content: {
             "A Passion to Learn":
-              "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque blanditiis iure sequi.",
+              "I love gaining new skills and sharpening my existing ones. Technology is always moving forward, and learning new skills to keep pace is a challenge that drives me.",
             "Full Stack Experience":
               "I've worked on projects where I needed to be involved through every part of process, from creating Java and Spring Restful APIs, building the decoupled front-end with React, and doing all of the styling from scratch.",
             "Broad Business Exposure":
-              "I have several years of experience working for a Fortune 500 company. I’ve built and managed customer facing teams tasked with creating exceptional client experiences. I have extensive experience collaborating on teams to reach our shared vision."
+              "I have several years of experience working for a Fortune 500 company, building and managing client-facing teams tasked with creating exceptional client experiences. I have extensive experience collaborating as part of a team to reach our shared vision."
           }
         },
         {
