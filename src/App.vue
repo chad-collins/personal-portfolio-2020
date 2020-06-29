@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ContactMenu @close="closeContactMenu()" v-show="showingContactMenu" />
-    <Navbar @show="showContactMenu()" v-model="currentView" />
+    <Navbar @show="showContactMenu()" v-model="currentView" v-bind:resume="resume" />
     <router-view @show="showContactMenu()" />
     <SocialBar v-if="showingContactMenu == false" />
     <Footer />
@@ -13,6 +13,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SocialBar from "./components/SocialBar";
 import ContactMenu from "./components/ContactMenu";
+import { RepositoryFactory } from "./repositories/RepositoryFactory.js";
+const dynamicDataRepository = RepositoryFactory.get("dynamicData");
 
 export default {
   name: "app",
@@ -25,8 +27,12 @@ export default {
   data() {
     return {
       currentView: "Home",
-      showingContactMenu: false
+      showingContactMenu: false,
+      resume: ""
     };
+  },
+  created(){
+    this.fetchResume();
   },
   methods: {
     closeContactMenu() {
@@ -34,6 +40,12 @@ export default {
     },
     showContactMenu() {
       this.showingContactMenu = true;
+    },
+    async fetchResume() {
+      const { data } = await dynamicDataRepository.get();
+      const items = data.records;
+      const found = items.find(element => element.fields.Name == "Resume");
+      this.resume = found.fields.Data
     }
   }
 };

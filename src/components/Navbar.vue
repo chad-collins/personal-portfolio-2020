@@ -1,11 +1,11 @@
 <template>
   <div class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
-      
     <router-link to="/">
       <img class="home-image" v-bind:src="require('@/assets/images/nav-image.png')" />
     </router-link>
     <nav>
       <router-link class="nav--link" to="/projects">Projects</router-link>
+      <a class="nav--link" :href="resume" target="_blank">Resume</a>
       <div @click="show" class="nav--link" to="/contact">Contact</div>
     </nav>
   </div>
@@ -16,6 +16,7 @@
 
 export default {
   name: "Navbar",
+  props: { resume: String },
 
   data() {
     return {
@@ -32,11 +33,9 @@ export default {
     window.removeEventListener("scroll", this.onScroll);
   },
   methods: {
-          
-        show(){
-            this.$emit('show')
-            
-        },
+    show() {
+      this.$emit("show");
+    },
     onScroll() {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
@@ -51,16 +50,13 @@ export default {
       this.showNavbar = currentScrollPosition < this.lastScrollPosition;
       this.lastScrollPosition = currentScrollPosition;
     },
-  
+
     
   }
 };
 </script>
 
 <style scoped>
-
-
-
 a {
   text-decoration: none;
 }
@@ -75,20 +71,15 @@ a {
   transform: translate3d(0, 0, 0);
   transition: 0.2s all ease-out;
   z-index: 1000;
-   padding: 0 0.93rem;
+  padding: 0 0.93rem;
 }
-
-
 
 .home-image {
   height: 30px;
- 
 }
 
-
-
 nav {
-  display: flex;;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -112,14 +103,10 @@ nav .router-link-active {
 }
 
 .nav--link:hover {
-   color: #86c232;
+  color: #86c232;
 }
-
-
 
 .navbar.navbar--hidden {
   transform: translate3d(0, -50px, 0);
 }
-
-
 </style>
